@@ -8,7 +8,7 @@
  * Print each result using console.log()
  *********************/
 
-// Your code here
+// Your code her
 
 
 /*********************
