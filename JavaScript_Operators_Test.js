@@ -12,7 +12,7 @@
 
 
 /*********************
- * Question 2: Assignment Operators (5 marks)
+ * Question 2: Assignment Operators (5 marks) rrrr
  * Create a variable and use the following assignment operators in sequence:
  * =, +=, -=, *=, /=, %=, **=
  * Print the value after each operation
