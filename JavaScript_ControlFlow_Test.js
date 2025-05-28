@@ -15,9 +15,9 @@ if (number < 0) {
     console.log("Negative");
 } else if (number > 0){
     console.log("Positive");
-} else (number == 0){
+} else
     console.log("Zero");
-}
+
 
 /*********************
  * Question 2: switch statement
