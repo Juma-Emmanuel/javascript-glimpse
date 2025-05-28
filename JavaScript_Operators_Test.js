@@ -176,13 +176,7 @@ console.log(x >>> y); //output: 1
 // Your code here
 
 let age = 21;
-if (age >= 18) {
-    result = "adult";
-} else {
-    result = "minor";
-}
-console.log(result);
-
+result = (age >= 18) ? "Adult" : "Minor";
 /*********************
  * Question 7: Type Operators (5 marks)
  * Use typeof and instanceof to demonstrate how to check data types and object inheritance.
