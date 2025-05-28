@@ -10,6 +10,14 @@
  *********************/
 
 // Your code here
+let number = -5;
+if (number < 0) {
+    console.log("Negative");
+} else if (number > 0){
+    console.log("Positive");
+} else (number == 0){ 
+    console.log("Zero");
+}
 
 /*********************
  * Question 2: switch statement
@@ -18,13 +26,41 @@
  *********************/
 
 // Your code here
-
+const day = 3;
+switch (day) {
+    case 0:
+        console.log("Sunday");
+        break;
+        case 1:
+            console.log("Monday");
+            break;
+            case 2:
+                console.log("Tuesday");
+                break;
+                case 3:
+                    console.log("Wednesday");
+                    break;
+                    case 4:
+                        console.log("Thursday");
+                        break;
+                        case 5:
+                            console.log("Friday");
+                            break;
+                            case 6:
+                                console.log("Saturday");
+                                break;
+                                }
 /*********************
  * Question 3: for loop
  * Print all even numbers from 1 to 20 using a for loop.
  *********************/
 
 // Your code here
+let i = 1;
+for (i = 1; i <= 20; i++) {
+    if (i % 2 == 0) {
+        console.log(i);
+}
 
 /*********************
  * Question 4: while loop
@@ -32,13 +68,23 @@
  *********************/
 
 // Your code here
-
+let x = 11;
+while (x >= 2) {
+    x--;
+    console.log(x);
+}
 /*********************
  * Question 5: do-while loop
  * Create a do-while loop that prints numbers from 1 to 5.
  *********************/
 
 // Your code here
+var x = 0;
+do {
+    x++;
+    console.log(x);
+} while (x < 5);
+
 
 /*********************
  * Question 6: break statement
@@ -46,13 +92,28 @@
  *********************/
 
 // Your code here
+for (let num = 1; num < 10; num++) {
 
+    if (num == 7) {
+        break;
+        }
+        console.log(num);
+    }
+        
 /*********************
  * Question 7: continue statement
  * Write a loop that prints numbers 1 to 10 but skips multiples of 3.
  *********************/
 
 // Your code here
+
+for (let i = 1; i <= 10; i++) {
+    if(i % 3 == 0) {
+        continue;
+        
+    }
+    console.log(i);
+}
 
 /*********************
  * Question 8: nested conditions
@@ -61,6 +122,16 @@
  *********************/
 
 // Your code here
+var x = 12;
+if (x % 2 == 0 && x > 10) {
+    console.log("The number is even and greater than 10.");
+    } else if (x % 2 == 0) {
+        console.log("The number is even.");
+        } else if (x > 10) {
+            console.log("The number is greater than 10.");
+            } else {
+                console.log("The number is neither even nor greater than 10.");
+                }
 
 /*********************
  * Question 9: try-catch-finally
@@ -71,3 +142,13 @@
  *********************/
 
 // Your code here
+var x = 10;
+var y = 0;
+try {
+    var result = x / y;
+    } catch (error) {
+        console.log("Error: Division by zero is not allowed.", result);
+        } finally {
+            console.log("Completed operation.", result);
+            }
+        
