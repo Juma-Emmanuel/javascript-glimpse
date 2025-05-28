@@ -15,7 +15,7 @@ if (number < 0) {
     console.log("Negative");
 } else if (number > 0){
     console.log("Positive");
-} else (number == 0){ 
+} else (number == 0){
     console.log("Zero");
 }
 
