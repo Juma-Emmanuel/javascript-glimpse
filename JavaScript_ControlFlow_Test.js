@@ -8,6 +8,14 @@
  * - "Zero" if equal to 0
  * - "Positive" if greater than 0
  *********************/
+let number = 0; // Example number{
+    if (number < 0) {
+        console.log("Negative");
+    } else if (number > 0){
+        console.log("Positive");
+        
+    } else  
+    console.log("Zero");   
 
 // Your code here
 
@@ -18,6 +26,32 @@
  *********************/
 
 // Your code here
+let day = 5; // 0-6, where 0 is Sunday and 6 is Saturday
+
+switch (day) {
+  case 0 :
+    console.log("monday");
+    break;
+  case 1:
+    console.log("Tuesday");
+    break;
+  case 2:
+    console.log("Wednesday");
+    break;
+  case 3:
+    console.log("Thursday");
+    break;
+  case 4:
+    console.log("Friday");
+    break;
+  case 5:
+    console.log("Saturday");
+    break;
+  case 6:
+    console.log("Sunday");
+    break;
+}
+
 
 /*********************
  * Question 3: for loop
@@ -25,6 +59,16 @@
  *********************/
 
 // Your code here
+const isEven = (num) => {
+  return num % 2 === 0;
+};
+for (let i = 1; i <= 20; i++) {
+  if (isEven(i)) {
+    console.log(`${i} is even`);
+  } else {
+    console.log(`${i} is odd`);
+  }
+}
 
 /*********************
  * Question 4: while loop
@@ -32,6 +76,12 @@
  *********************/
 
 // Your code here
+let i=11;
+while(i>1){
+    i--;
+    console.log(`countdown: ${i}`);
+    }
+  
 
 /*********************
  * Question 5: do-while loop
@@ -39,6 +89,16 @@
  *********************/
 
 // Your code here
+let count=1;
+do {
+  console.log("Count is: ",count);
+  count++;
+} while (count <= 5);
+
+
+  
+
+
 
 /*********************
  * Question 6: break statement
@@ -47,12 +107,27 @@
 
 // Your code here
 
+for(let i = 1; i < 8; i++) {
+    if(i==8) {
+break;
+    } 
+    console.log(i);
+  }
+    
+
+
 /*********************
  * Question 7: continue statement
  * Write a loop that prints numbers 1 to 10 but skips multiples of 3.
  *********************/
 
 // Your code here
+for(let j=1; j<=10; j++){
+    if(j % 3=== 0) {
+        continue; 
+}
+    console.log(j);
+}
 
 /*********************
  * Question 8: nested conditions
@@ -61,6 +136,16 @@
  *********************/
 
 // Your code here
+let number = 15;
+if (number % 2 === 0) {
+    if (number > 10) {
+        console.log("The number is even and greater than 10");
+    } else {
+        console.log("The number is even but not greater than 10");
+    }
+} else {
+    console.log("The number is odd");
+}
 
 /*********************
  * Question 9: try-catch-finally
