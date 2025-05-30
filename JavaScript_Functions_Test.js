@@ -11,7 +11,7 @@
 function greet(name) {
     return "Hello, Shawn";
     };
-    console.log(greet("Shawn")); // Output: Hello, Shawn
+    console.log(greet("name")); // Output: Hello, Shawn
 
 /*********************
  * Question 2: Function Expression
@@ -40,14 +40,9 @@ console.log(squareOf(5));
 
 // Your code here
 function mul( a, b = 1 ) {
- if (b === 0) {
-    return 1;
+return a * b;
     }
-    return a * b;
-    }
-    let a = 5;
-    let b = 2;
-    console.log(mul(a, b)); // Output: 10
+    console.log(mul(5, 4)); // Output: 20
 
 /*********************
  * Question 5: Rest Parameters
