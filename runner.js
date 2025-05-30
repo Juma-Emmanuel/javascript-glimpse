@@ -1,6 +1,10 @@
-function mul( a, b = 1 ) {
-return a * b;
+function greet() {
+    console.log(`Hello, my name is ${this.name}`);
+}
 
-    }
-    
-    console.log(mul(5, 4));
+var person = {
+    name: "Alice"
+};
+
+var boundGreet = greet.bind(person);
+boundGreet();

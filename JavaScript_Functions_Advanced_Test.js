@@ -6,6 +6,9 @@
  *********************/
 
 // Your code here
+(function () {
+    console.log("Self-invoked!");
+    })();
 
 /*********************
  * Question 2: call() Method
@@ -14,6 +17,19 @@
  *********************/
 
 // Your code here
+function sayHello() {
+    console.log(`Hello, my name is ${this.name}`);
+    }
+    var person = {
+        name: "John",
+        sayHello: sayHello
+        };
+        var anotherPerson = {
+            name: "Jane"
+            };
+            sayHello.call(anotherPerson, person.name); // Output: Hello, my name is John
+            sayHello.call(person, anotherPerson.name); // Output: Hello, my name is Jane
+            sayHello.call(person, "Bob"); // Output: Hello, my name is Bob
 
 /*********************
  * Question 3: apply() Method
@@ -21,6 +37,18 @@
  *********************/
 
 // Your code here
+function sayHello() {
+    console.log(`Hello, my name is ${this.name}`);
+    }
+    var person = {
+        name: "John",
+        sayHello: sayHello
+    };
+    var anotherPerson = {
+        name: "Jane",
+    };
+    sayHello.apply(person);
+    sayHello.apply(anotherPerson);
 
 /*********************
  * Question 4: bind() Method
@@ -29,3 +57,13 @@
  *********************/
 
 // Your code here
+function greet() {
+    console.log(`Hello, my name is ${this.name}`);
+}
+
+var person = {
+    name: "Alice"
+};
+
+var boundGreet = greet.bind(person);
+boundGreet();
