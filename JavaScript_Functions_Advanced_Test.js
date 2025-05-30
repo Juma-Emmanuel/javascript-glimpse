@@ -27,9 +27,8 @@ function sayHello() {
         var anotherPerson = {
             name: "Jane"
             };
-            sayHello.call(anotherPerson, person.name); // Output: Hello, my name is John
-            sayHello.call(person, anotherPerson.name); // Output: Hello, my name is Jane
-            sayHello.call(person, "Bob"); // Output: Hello, my name is Bob
+            sayHello.call(anotherPerson); // Output: Hello, my name is Jane
+            sayHello.call(person); // Output: Hello, my name is John
 
 /*********************
  * Question 3: apply() Method
