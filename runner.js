@@ -1,12 +1,9 @@
-function sayHello() {
-    console.log(`Hello, my name is ${this.name}`);
-    }
-    var person = {
-        name: "John",
-        sayHello: sayHello
-        };
-        var anotherPerson = {
-            name: "Jane"
-            };
-            sayHello.call(anotherPerson); // Output: Hello, my name is Jane
-            sayHello.call(person); // Output: Hello, my name is John
+const person = {
+    name: 'Alice',
+    age: 30,
+    city: 'Nairobi'
+};
+const jsonString = JSON.stringify(person); // Converting object to JSON string
+const parsedObject = JSON.parse(jsonString); // Converting JSON string back to object
+console.log(jsonString); // Output: {"name":"Alice","age":30,"city":"Nairobi"}
+console.log(parsedObject);

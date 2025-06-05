@@ -6,7 +6,15 @@
  *********************/
 
 // Your code here
-
+const car = {
+    make: 'Toyota',
+    model: 'Camry',
+    year: 2020,
+    displayInfo: function() {
+        console.log(`Make: ${this.make}, Model: ${this.model}, Year: ${this.year}`);
+    }
+};
+car.displayInfo(); // Output: Make: Toyota, Model: Camry, Year: 2020
 
 /*********************
  * Question 2:
@@ -14,7 +22,18 @@
  *********************/
 
 // Your code here
-
+const car = {
+    make: 'Toyota',
+    model: 'Camry',
+    year: 2020,
+    displayInfo: function() {
+const carModelDot = car.model; // Accessing model using dot notation
+const carModelBracket = car['model']; // Accessing model using bracket notation
+console.log(carModelDot); // Output: Camry
+console.log(carModelBracket); // Output: Camry
+}
+};
+car.displayInfo();
 
 /*********************
  * Question 3:
@@ -22,7 +41,16 @@
  *********************/
 
 // Your code here
-
+const car = {
+    make: 'Toyota',
+    model: 'Camry',
+    year: 2020,
+    displayInfo: function() {
+car.year = new Date().getFullYear();
+console.log(car.year); // Output: The current year
+    }
+};
+car.displayInfo(); // Output: The current year
 
 /*********************
  * Question 4:
@@ -30,7 +58,16 @@
  *********************/
 
 // Your code here
-
+const car = {
+    make: 'Toyota',
+    model: 'Camry',
+    year: 2020,
+    color: 'Blue', // Adding new property color
+    displayInfo: function() {
+        console.log(`Make: ${this.make}, Model: ${this.model}, Year: ${this.year}, Color: ${this.color}`);
+    }
+};
+car.displayInfo(); // Output: Make: Toyota, Model: Camry, Year: 2020, Color: Blue
 
 /*********************
  * Question 5:
@@ -38,7 +75,17 @@
  *********************/
 
 // Your code here
-
+const car = {
+    make: 'Toyota',
+    model: 'Camry',
+    year: 2020,
+    color: 'Blue',
+    displayInfo: function() {
+        console.log(`Make: ${this.make}, Model: ${this.model}, Year: ${this.year}, Color: ${this.color}`);
+    }
+};
+delete car.model; // Deleting the model property
+car.displayInfo(); // Output: Make: Toyota, Model: undefined, Year: 2020, Color: Blue
 
 /*********************
  * Question 6:
@@ -46,7 +93,24 @@
  *********************/
 
 // Your code here
-
+const car = {
+    make: 'Toyota',
+    model: 'Camry',
+    year: 2020,
+    color: 'Blue',
+    owner: {
+        name: 'John Kinyanjui',
+        address: '123 Main St, Westlands, Kenya'
+    },
+    displayInfo: function() {
+        console.log(`Make: ${this.make}, Model: ${this.model}, Year: ${this.year}, Color: ${this.color}`);
+        console.log(`Owner: ${this.owner.name}`);
+        console.log(`Address: ${this.owner.address}`);
+    }
+};
+car.displayInfo(); // Output: Make: Toyota, Model: Camry, Year: 2020, Color: Blue
+car.owner.name; // Accessing owner's name
+car.owner.address; // Accessing owner's address
 
 /*********************
  * Question 7:
@@ -54,7 +118,19 @@
  *********************/
 
 // Your code here
+const car = {
+    make: 'Toyota',
+    model: 'Camry',
+    year: 2020,
+    color: 'Blue',
+    owner: 'John Kinyanjui',
 
+};
+for (let key in car) {
+    if (car.hasOwnProperty(key)) {
+        console.log(`${key}: ${car[key]}`);
+    }
+}
 
 /*********************
  * Question 8:
@@ -62,7 +138,16 @@
  *********************/
 
 // Your code here
-
+const car = {
+    make: 'Toyota',
+    model: 'Camry',
+    year: 2020,
+    color: 'Blue',
+    owner: 'John Kinyanjui',
+};
+console.log(Object.keys(car)); // Output: ['make', 'model', 'year', 'color', 'owner']
+console.log(Object.values(car)); // Output: ['Toyota', 'Camry', 2020, 'Blue', 'John Kinyanjui']
+console.log(Object.entries(car)); // Output: [['make', 'Toyota'], ['model', 'Camry'], ['year', 2020], ['color', 'Blue'], ['owner', 'John Kinyanjui']]
 
 /*********************
  * Question 9:
@@ -70,7 +155,18 @@
  *********************/
 
 // Your code here
-
+const car = {
+    make: 'Toyota',
+    model: 'Camry',
+    year: 2020,
+    color: 'Blue',
+    owner: 'John Kinyanjui',
+};
+Object.freeze(car); // Freezing the car object
+car.year = 2021; // Attempting to modify the year property
+console.log(car.year); // Output: 2020 (the year property remains unchanged as the object is frozen by Object.freeze() function and cannot be modified)
+car.color = 'Red'; // Attempting to change the color property
+console.log(car.color); // Output: Blue (the color property remains unchanged as the object is frozen by Object.freeze() function and cannot be modified)
 
 /*********************
  * Question 10:
@@ -78,7 +174,16 @@
  *********************/
 
 // Your code here
-
+const bike = {
+    make: 'Yamaha',
+    model: 'MT-07',
+    year: 2021,
+};
+Object.seal(bike); // Sealing the bike object
+bike.year = 2022; // Modifying an existing property
+bike.color = 'Black'; // Attempting to add a new property (this will not work)
+console.log(bike.year); // Output: 2022 (the year property is modified)
+console.log(bike.color); // Output: undefined (the color property is not added as the object is sealed by Object.seal() function and new properties cannot be added)
 
 /*********************
  * Question 11:
@@ -87,7 +192,16 @@
  *********************/
 
 // Your code here
-
+const Book = function(title, author, year) {
+    this.title = title;
+    this.author = author;
+    this.year = year;
+};
+Book.prototype.describe = function() {
+    console.log(`${this.title} by ${this.author}, published in ${this.year}`);
+}
+const myBook = new Book('1984', 'George Orwell', 1949);
+myBook.describe(); // Output: 1984 by George Orwell, published in 1949
 
 /*********************
  * Question 12:
@@ -95,7 +209,21 @@
  *********************/
 
 // Your code here
-
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+    speak() {
+        console.log(`${this.name} makes a sound.`);
+    }
+}
+class Dog extends Animal {
+    speak() {
+        console.log(`${this.name} barks.`);
+    }
+}
+const myDog = new Dog('Rex');
+myDog.speak(); // Output: Rex barks.
 
 /*********************
  * Question 13:
@@ -103,7 +231,14 @@
  *********************/
 
 // Your code here
-
+const originalCar = {
+    make: 'Honda',
+    model: 'Civic',
+    year: 2019,
+    color: 'Red'
+};
+const clonedCar = { ...originalCar }; // Cloning the originalCar object using the spread operator
+console.log(clonedCar); // Output: { make: 'Honda', model: 'Civic', year: 2019, color: 'Red' }
 
 /*********************
  * Question 14:
@@ -111,7 +246,14 @@
  *********************/
 
 // Your code here
-
+const person = {
+    name: 'Alice',
+    age: 30,
+    city: 'Kitengela',
+};
+const { name, age, city } = person; // Destructuring to extract properties
+console.log(name); // Output: Alice
+console.log(age); // Output: 30
 
 /*********************
  * Question 15:
@@ -119,7 +261,11 @@
  *********************/
 
 // Your code here
-
+function createPerson(name, age, city) {
+    return { name, age, city }; // Using object shorthand to create a new object
+}
+const person = createPerson('Bob', 25, 'Nairobi');
+console.log(person); // Output: { name: 'Bob', age: 25, city: 'Nairobi' }
 
 /*********************
  * Question 16:
@@ -127,7 +273,21 @@
  *********************/
 
 // Your code here
+const user = {
+    name: 'John Kinyanjui',
+    address: {
+        city: 'Nairobi',
+        country: 'Kenya'
+    }
+};
+const city = user.address?.city ?? 'Unknown City'; // Using optional chaining and nullish coalescing
+console.log(city); // Output: Nairobi (if address exists) or Unknown City (if address is undefined or null)
 
+const userWithoutAddress = {
+    name: 'Jane wambui'
+};
+const cityWithoutAddress = userWithoutAddress.address?.city ?? 'Unknown City'; // Using optional chaining and nullish coalescing
+console.log(cityWithoutAddress); // Output: Unknown City (since address is undefined)
 
 /*********************
  * Question 17:
@@ -135,7 +295,14 @@
  *********************/
 
 // Your code here
-
+const person = {
+    name: 'Alice',
+    age: 30
+};
+person.greet = function() {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+};
+person.greet(); // Output: Hello, my name is Alice and I am 30 years old.
 
 /*********************
  * Question 18:
@@ -143,7 +310,14 @@
  *********************/
 
 // Your code here
-
+const person = {
+    name: 'Alice',
+    age: 30,
+    greet: function() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`); // Using this to access properties of the object 
+    }
+};
+person.greet(); // Output: Hello, my name is Alice and I am 30 years old. 
 
 /*********************
  * Question 19:
@@ -151,7 +325,27 @@
  *********************/
 
 // Your code here
-
+const car = {
+    make: 'Toyota',
+    model: 'Camry',
+    year: 2020
+};
+function checkKey(obj, key) {
+    if (key in obj) {
+        console.log(`${key} exists in the object.`);
+    } else {
+        console.log(`${key} does not exist in the object.`);
+    }
+    
+    if (obj.hasOwnProperty(key)) {
+        console.log(`${key} is a direct property of the object.`);
+    } else {
+        console.log(`${key} is not a direct property of the object.`);
+    }
+}
+checkKey(car, 'make'); // Output: make exists in the object. make is a direct property of the object.
+checkKey(car, 'color'); // Output: color does not exist in the object. color is not a direct property of the object.
+checkKey(car, 'toString'); // Output: toString exists in the object. toString is not a direct property of the object.
 
 /*********************
  * Question 20:
@@ -159,4 +353,12 @@
  *********************/
 
 // Your code here
-
+const person = {
+    name: 'Alice',
+    age: 30,
+    city: 'Nairobi'
+};
+const jsonString = JSON.stringify(person); // Converting object to JSON string
+const parsedObject = JSON.parse(jsonString); // Converting JSON string back to object
+console.log(jsonString); // Output: {"name":"Alice","age":30,"city":"Nairobi"}
+console.log(parsedObject); // Output: { name: 'Alice', age: 30, city: 'Nairobi' }
