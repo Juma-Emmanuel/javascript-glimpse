@@ -14,7 +14,8 @@ displayinfo: function() {
     console.log(`Car Make: ${this.Make}, Model: ${this.Model}, Year: ${this.Year}`);
 }    
 };
-Car.displayinfo();   
+Car.displayinfo();
+ 
 
 
 
