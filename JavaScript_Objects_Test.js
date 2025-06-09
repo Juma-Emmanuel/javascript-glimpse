@@ -22,18 +22,11 @@ car.displayInfo(); // Output: Make: Toyota, Model: Camry, Year: 2020
  *********************/
 
 // Your code here
-const car = {
-    make: 'Toyota',
-    model: 'Camry',
-    year: 2020,
-    displayInfo: function() {
+// Accessing model using dot and bracket notation
 const carModelDot = car.model; // Accessing model using dot notation
 const carModelBracket = car['model']; // Accessing model using bracket notation
 console.log(carModelDot); // Output: Camry
 console.log(carModelBracket); // Output: Camry
-}
-};
-car.displayInfo();
 
 /*********************
  * Question 3:
@@ -48,16 +41,9 @@ const car = {
     displayInfo: function() {
 car.year = new Date().getFullYear();
 console.log(car.year); // Output: The current year
-    }
-};
-car.displayInfo(); // Output: The current year
-
-/*********************
- * Question 4:
- * Add a new property color to the car object.
- *********************/
-
-// Your code here
+// Update the year of the car to the current year
+car.year = new Date().getFullYear();
+console.log(car.year); // Output: The current year
 const car = {
     make: 'Toyota',
     model: 'Camry',
@@ -72,16 +58,12 @@ car.displayInfo(); // Output: Make: Toyota, Model: Camry, Year: 2020, Color: Blu
 /*********************
  * Question 5:
  * Delete the model property from the car object.
- *********************/
-
-// Your code here
-const car = {
-    make: 'Toyota',
-    model: 'Camry',
-    year: 2020,
-    color: 'Blue',
-    displayInfo: function() {
-        console.log(`Make: ${this.make}, Model: ${this.model}, Year: ${this.year}, Color: ${this.color}`);
+// Adding new property color
+car.color = 'Blue';
+car.displayInfo = function() {
+    console.log(`Make: ${this.make}, Model: ${this.model}, Year: ${this.year}, Color: ${this.color}`);
+};
+car.displayInfo(); // Output: Make: Toyota, Model: Camry, Year: 2020, Color: Blue
     }
 };
 delete car.model; // Deleting the model property
@@ -93,17 +75,9 @@ car.displayInfo(); // Output: Make: Toyota, Model: undefined, Year: 2020, Color:
  *********************/
 
 // Your code here
-const car = {
-    make: 'Toyota',
-    model: 'Camry',
-    year: 2020,
-    color: 'Blue',
-    owner: {
-        name: 'John Kinyanjui',
-        address: '123 Main St, Westlands, Kenya'
-    },
-    displayInfo: function() {
-        console.log(`Make: ${this.make}, Model: ${this.model}, Year: ${this.year}, Color: ${this.color}`);
+// Deleting the model property
+delete car.model;
+car.displayInfo(); // Output: Make: Toyota, Model: undefined, Year: 2020, Color: Blue
         console.log(`Owner: ${this.owner.name}`);
         console.log(`Address: ${this.owner.address}`);
     }
@@ -119,24 +93,19 @@ car.owner.address; // Accessing owner's address
 
 // Your code here
 const car = {
-    make: 'Toyota',
-    model: 'Camry',
-    year: 2020,
-    color: 'Blue',
-    owner: 'John Kinyanjui',
-
+// Adding nested owner object
+car.owner = {
+    name: 'John Kinyanjui',
+    address: '123 Main St, Westlands, Kenya'
 };
-for (let key in car) {
-    if (car.hasOwnProperty(key)) {
-        console.log(`${key}: ${car[key]}`);
-    }
-}
-
-/*********************
- * Question 8:
- * Use Object.keys(), Object.values(), and Object.entries() on the car object.
- *********************/
-
+car.displayInfo = function() {
+    console.log(`Make: ${this.make}, Model: ${this.model}, Year: ${this.year}, Color: ${this.color}`);
+    console.log(`Owner: ${this.owner.name}`);
+    console.log(`Address: ${this.owner.address}`);
+};
+car.displayInfo(); // Output: Make: Toyota, Model: undefined, Year: 2020, Color: Blue
+car.owner.name; // Accessing owner's name
+car.owner.address; // Accessing owner's address
 // Your code here
 const car = {
     make: 'Toyota',
@@ -149,19 +118,12 @@ console.log(Object.keys(car)); // Output: ['make', 'model', 'year', 'color', 'ow
 console.log(Object.values(car)); // Output: ['Toyota', 'Camry', 2020, 'Blue', 'John Kinyanjui']
 console.log(Object.entries(car)); // Output: [['make', 'Toyota'], ['model', 'Camry'], ['year', 2020], ['color', 'Blue'], ['owner', 'John Kinyanjui']]
 
-/*********************
- * Question 9:
- * Use Object.freeze() on the car object and try modifying a property.
- *********************/
-
-// Your code here
-const car = {
-    make: 'Toyota',
-    model: 'Camry',
-    year: 2020,
-    color: 'Blue',
-    owner: 'John Kinyanjui',
-};
+// Loop through all properties of the car object
+for (let key in car) {
+    if (car.hasOwnProperty(key)) {
+        console.log(`${key}: ${car[key]}`);
+    }
+}
 Object.freeze(car); // Freezing the car object
 car.year = 2021; // Attempting to modify the year property
 console.log(car.year); // Output: 2020 (the year property remains unchanged as the object is frozen by Object.freeze() function and cannot be modified)
@@ -176,16 +138,10 @@ console.log(car.color); // Output: Blue (the color property remains unchanged as
 // Your code here
 const bike = {
     make: 'Yamaha',
-    model: 'MT-07',
-    year: 2021,
-};
-Object.seal(bike); // Sealing the bike object
-bike.year = 2022; // Modifying an existing property
-bike.color = 'Black'; // Attempting to add a new property (this will not work)
-console.log(bike.year); // Output: 2022 (the year property is modified)
-console.log(bike.color); // Output: undefined (the color property is not added as the object is sealed by Object.seal() function and new properties cannot be added)
-
-/*********************
+// Using Object.keys(), Object.values(), and Object.entries() on the car object
+console.log(Object.keys(car)); // Output: ['make', 'model', 'year', 'color', 'owner']
+console.log(Object.values(car)); // Output: ['Toyota', undefined, 2020, 'Blue', { name: 'John Kinyanjui', address: '123 Main St, Westlands, Kenya' }]
+console.log(Object.entries(car)); // Output: [['make', 'Toyota'], ['model', undefined], ['year', 2020], ['color', 'Blue'], ['owner', { ... }]]
  * Question 11:
  * Create a constructor function for a Book that takes title, author, and year.
  * Add a method describe() to its prototype.
@@ -199,18 +155,11 @@ const Book = function(title, author, year) {
 };
 Book.prototype.describe = function() {
     console.log(`${this.title} by ${this.author}, published in ${this.year}`);
-}
-const myBook = new Book('1984', 'George Orwell', 1949);
-myBook.describe(); // Output: 1984 by George Orwell, published in 1949
-
-/*********************
- * Question 12:
- * Create a class `Animal` with a constructor and a method speak(). Extend it with a subclass `Dog`.
- *********************/
-
-// Your code here
-class Animal {
-    constructor(name) {
+Object.freeze(car); // Freezing the car object
+car.year = 2021; // Attempting to modify the year property
+console.log(car.year); // Output: 2020 (the year property remains unchanged as the object is frozen by Object.freeze() function and cannot be modified)
+car.color = 'Red'; // Attempting to change the color property
+console.log(car.color); // Output: Blue (the color property remains unchanged as the object is frozen by Object.freeze() function and cannot be modified)
         this.name = name;
     }
     speak() {
@@ -336,7 +285,7 @@ function checkKey(obj, key) {
     } else {
         console.log(`${key} does not exist in the object.`);
     }
-    
+
     if (obj.hasOwnProperty(key)) {
         console.log(`${key} is a direct property of the object.`);
     } else {
@@ -362,3 +311,19 @@ const jsonString = JSON.stringify(person); // Converting object to JSON string
 const parsedObject = JSON.parse(jsonString); // Converting JSON string back to object
 console.log(jsonString); // Output: {"name":"Alice","age":30,"city":"Nairobi"}
 console.log(parsedObject); // Output: { name: 'Alice', age: 30, city: 'Nairobi' }
+function checkKey(obj, key) {
+    if (key in obj) {
+        console.log(`${key} exists in the object.`);
+    } else {
+        console.log(`${key} does not exist in the object.`);
+    }
+    
+    if (obj.hasOwnProperty(key)) {
+        console.log(`${key} is a direct property of the object.`);
+    } else {
+        console.log(`${key} is not a direct property of the object.`);
+    }
+}
+checkKey(car, 'make'); // Output: make exists in the object. make is a direct property of the object.
+checkKey(car, 'color'); // Output: color does not exist in the object. color is not a direct property of the object.
+checkKey(car, 'toString'); // Output: toString exists in the object. toString is not a direct property of the object.

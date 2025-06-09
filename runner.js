@@ -1,9 +1,11 @@
-const person = {
-    name: 'Alice',
-    age: 30,
-    city: 'Nairobi'
+const company = {
+  companyName: "Tutorials Point",
+  companyWebsite: "www.tutorialspoint.com",
+
+  getInfo: function() {
+    console.log("Company Name:", this.companyName);
+    console.log("Website:", this.companyWebsite);
+  },
 };
-const jsonString = JSON.stringify(person); // Converting object to JSON string
-const parsedObject = JSON.parse(jsonString); // Converting JSON string back to object
-console.log(jsonString); // Output: {"name":"Alice","age":30,"city":"Nairobi"}
-console.log(parsedObject);
+
+company.getInfo();
