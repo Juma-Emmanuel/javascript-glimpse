@@ -3,15 +3,12 @@
  *********************/
 
 // Your code here
-// Adding the greet method to the existing person object
-person.greet = function() {
-  console.log("Hello, my name is " + this.name);
-};
+const person = {
   name: "John",
   age: 30,
   city: "New York"
 };
-console.log(person);
+console.log(person); // Logging the person object to verify its properties
 
 /*********************
  Question2: Given the object car = { brand: "Toyota", model: "Camry", year: 2020 }, how do you access the model property?
@@ -68,18 +65,9 @@ console.log(car4); // Logging the car object after deletion
 /*********************
  Question6: Add a method greet() to the person object (from Q1) that logs "Hello, my name is John".
  *********************/
- const person1 = {
-  name: "John",
-  age: 30,
-  city: "New York",
-  greet: function() {
-    console.log("Hello, my name is John");
-  }          
-};
-person1.greet();
-
 
 // Your code here
+
 const person = {
     name: "John",
     age: 30,
@@ -113,23 +101,13 @@ for (const key in person2) {
   if (person2.hasOwnProperty(key)) {
     console.log(`${key}: ${person2[key]}`);
   }
-}           
+}  
 
 
-
+/*********************
 
  Question8: Use destructuring to extract name and age from the person object and log them.
  *********************/
-
- 
-const person3 = {
-    name: "kate",
-    age : 22,
-}
-const {name, age} = person3;
-console.log(`name:${name}`);
-console.log(`age:${age}`);
-
 
 // Your code here
 const person = {
@@ -141,10 +119,6 @@ const { name, age } = person;
 console.log(`Name: ${name}, Age: ${age}`); // Logs "Name: John, Age: 30"
 
 /*********************
-
-
-
-
 
 Question9: Merge two objects obj1 = { a: 1, b: 2 } and obj2 = { c: 3, d: 4 } into a new object mergedObj.
  *********************/
