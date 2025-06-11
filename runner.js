@@ -1,27 +1,18 @@
-const car = {
-    make: "Toyota",
-    model: "Camry",
-    year: 2020
-};
-const car2 = {
-  make: "Honda",
-  model: "Civic",
-  year: 2021
-};
-
-function checkKey(obj, key) {
-    // Using 'in' operator
-    if (key in obj) {
-        console.log(`${key} exists in the object.`);
-    } else {
-        console.log(`${key} does not exist in the object.`);
-    }
-    
-    // Using hasOwnProperty method
-    if (obj.hasOwnProperty(key)) {
-        console.log(`${key} is a direct property of the object.`);
-    } else {
-        console.log(`${key} is not a direct property of the object.`);
-    }
+function asyncTask(taskName, duration, callback) {
+  console.log("Task started " + taskName);
+  setTimeout(function() {
+    console.log('Completed ' + taskName);
+    callback();
+  }, duration);
 }
-checkKey(car, "price"); // Logs: model exists in the object. model is a direct property of the object. 
+
+// Task 1
+asyncTask('Task 1', 1000, function() {
+  // Task 2
+  asyncTask('Task 2', 1500, function() {
+    // Task 3
+    asyncTask('Task 3', 1000, function() {
+      console.log("All tasks completed");
+    });
+  });
+});
