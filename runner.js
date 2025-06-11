@@ -1,18 +1,21 @@
-function asyncTask(taskName, duration, callback) {
-  console.log("Task started " + taskName);
-  setTimeout(function() {
-    console.log('Completed ' + taskName);
-    callback();
-  }, duration);
+function login(user, callback) {
+    setTimeout(() => {
+        console.log(user + " logged in");
+        callback();
+    }, 1000);
 }
-
-// Task 1
-asyncTask('Task 1', 1000, function() {
-  // Task 2
-  asyncTask('Task 2', 1500, function() {
-    // Task 3
-    asyncTask('Task 3', 1000, function() {
-      console.log("All tasks completed");
+function fetchData(callback) {
+    setTimeout(() => {
+        console.log("Data fetched"); // Simulate data fetching in 1 second
+        callback();
+    }, 1000);
+}
+function displayData() {
+    console.log("Data displayed"); // Display the fetched data 
+}
+// Initial call
+login("Alice", () => { // Login Alice
+    fetchData(() => { // Fetch data after login
+        displayData(); // Display the data after fetching
     });
-  });
-});
+})
