@@ -127,15 +127,64 @@ console.log("Script end");
 function delay(ms) {
     // Your code here
 }
+function delay(ms) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms);
+  });
+}
 
+// Example usage:
+delay(2000).then(() => {
+  console.log("Executed after 2 seconds");
+});
 /********* 11. Timing Events: setTimeout *********/
 // Q: Write a code that logs "Hello after 2 seconds" using setTimeout
-
+etTimeout(() => {
+  console.log("Hello after 2 seconds");
+}, 2000);
 /********* 12. Timing Events: setInterval *********/
 // Q: Write a function that logs the current time every second, and stops after 5 seconds.
-
+let count = 0;
+const intervalId = setInterval(() => {
+  console.log(new Date().toLocaleTimeString());
+  count++;
+  if (count === 5) {
+    clearInterval(intervalId); // Stops after 5 times
+  }
+}, 1000);
 /********* 13. Clear Interval *********/
 // Q: Use clearInterval to stop the interval from question 12.
+let count = 0;
+
+// Start the interval
+const intervalId = setInterval(() => {
+  console.log(new Date().toLocaleTimeString()); // Log current time
+  count++;
+
+  // Stop after 5 times
+  if (count === 5) {
+    clearInterval(intervalId); // Clear the interval
+    console.log("Stopped logging after 5 seconds");
+  }
+}, 1000);
 
 /********* 14. Concurrent Async Functions *********/
 // Q: Call two async functions concurrently and print their result when both complete.
+function asyncTask1() {
+  return new Promise(resolve => {
+    setTimeout(() => resolve("Result from Task 1"), 1500);
+  });
+}
+
+function asyncTask2() {
+  return new Promise(resolve => {
+    setTimeout(() => resolve("Result from Task 2"), 1000);
+  });
+}
+
+// Run both concurrently and log when both complete
+Promise.all([asyncTask1(), asyncTask2()]).then(results => {
+  console.log("Both tasks done:");
+  console.log(results[0]);
+  console.log(results[1]);
+});
