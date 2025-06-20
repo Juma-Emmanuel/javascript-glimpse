@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>no right click</title>
+</head>
+<body>
+
+<div id="myImage"> 
+    <button>Right click disabled in this box</button>
+</div>
+
+<script>
+const noRightClick = document.getElementById("myImage");
+noRightClick.addEventListener("contextmenu", function(event) {
+    event.preventDefault(); 
+    console.log("Right click disabled");
+});
+</script>
+
+</body>
+</html>
